@@ -1,0 +1,182 @@
+{
+  "theme_overview": {
+    "domain": "Meditation, Breathwork, Esoteric Mental States",
+    "theme": "Dark",
+    "archetype": "Archetype 5 (Luxury) mixed with elements of Archetype 7 (Futuristic/Electric) for deep states.",
+    "vibe": "Serene, sacred, high-end, futuristic, deep, mysterious. Immersive ambient space.",
+    "core_concept": "High-end Glassmorphism over dynamic, breathing gradient meshes. UI elements feel like frosted glass suspended in the void."
+  },
+  "typography": {
+    "strategy": "Elegant sans-serif hierarchy blending geometric structure with organic readability. Soft contrast opacity for metadata.",
+    "primary_font_latin": "Manrope",
+    "primary_font_persian": "Vazirmatn",
+    "weights": {
+      "light": "300",
+      "regular": "400",
+      "semi_bold": "600",
+      "extra_bold": "800"
+    },
+    "scale": {
+      "h1": { "fontSize": 48, "lineHeight": 56, "letterSpacing": -1.5, "weight": "800", "description": "Hero text, Breathwork active states" },
+      "h2": { "fontSize": 32, "lineHeight": 40, "letterSpacing": -1.0, "weight": "600", "description": "Branch titles, Mentor greetings" },
+      "h3": { "fontSize": 24, "lineHeight": 32, "letterSpacing": -0.5, "weight": "600", "description": "Screen titles, levels" },
+      "body_lg": { "fontSize": 18, "lineHeight": 28, "weight": "400", "description": "Primary content, intros" },
+      "body": { "fontSize": 16, "lineHeight": 24, "weight": "400", "description": "Standard text" },
+      "caption": { "fontSize": 12, "lineHeight": 16, "letterSpacing": 2.0, "textTransform": "uppercase", "weight": "600", "description": "Overlines, labels, timestamps" }
+    },
+    "opacity_rules": {
+      "primary": "rgba(255, 255, 255, 1)",
+      "secondary": "rgba(255, 255, 255, 0.7)",
+      "tertiary": "rgba(255, 255, 255, 0.4)"
+    }
+  },
+  "colors": {
+    "base_system": {
+      "background_void": "#050505",
+      "surface_glass": "rgba(255, 255, 255, 0.03)",
+      "border_glass_light": "rgba(255, 255, 255, 0.15)",
+      "border_glass_dark": "rgba(255, 255, 255, 0.05)",
+      "error": "#FF453A",
+      "success": "#32D74B",
+      "text_primary": "#FFFFFF",
+      "text_secondary": "rgba(255, 255, 255, 0.7)"
+    },
+    "branches": {
+      "1_wealth": { "name": "Wealth", "persian": "ثروت", "gradient_stops": ["#050505", "#3A2100", "#FFB347"], "accent": "#FFD700" },
+      "2_personal_dev": { "name": "Personal Development", "persian": "توسعه فردی", "gradient_stops": ["#050505", "#0F2027", "#203A43"], "accent": "#4A90E2" },
+      "3_deep_sleep": { "name": "Deep Sleep", "persian": "خواب عمیق", "gradient_stops": ["#050505", "#0A0A2A", "#1F1C53"], "accent": "#8A84E2" },
+      "4_astral_projection": { "name": "Astral Projection", "persian": "پرواز روح", "gradient_stops": ["#050505", "#110022", "#480082"], "accent": "#B400FF" },
+      "5_connection": { "name": "Connection", "persian": "ارتباط گیری", "gradient_stops": ["#050505", "#2C2C26", "#F2E8C6"], "accent": "#FFF3B0" },
+      "6_shifting": { "name": "Shifting", "persian": "شیفتینگ", "gradient_stops": ["#050505", "#2E004B", "#6A006A"], "accent": "#D100D1" },
+      "7_healing": { "name": "Healing", "persian": "شفا", "gradient_stops": ["#050505", "#002B1E", "#006B4B"], "accent": "#00FF9D" },
+      "8_hypnosis": { "name": "Hypnosis", "persian": "هیپنوتیزم", "gradient_stops": ["#050505", "#000B29", "#002B99"], "accent": "#0048FF" },
+      "9_overcoming_matrix": { "name": "Overcoming the Matrix", "persian": "غلبه بر ماتریکس", "gradient_stops": ["#050505", "#0A1F0A", "#143D14"], "accent": "#00FF00" },
+      "10_study_learning": { "name": "Study & Learning", "persian": "مطالعه و یادگیری", "gradient_stops": ["#050505", "#00183A", "#005580"], "accent": "#00B4D8" },
+      "11_mind_silence": { "name": "Mind Silence", "persian": "مدیتیشن خاموشی ذهن", "gradient_stops": ["#050505", "#080808", "#1A1A1A"], "accent": "#FFFFFF" }
+    }
+  },
+  "glassmorphism_system": {
+    "library": "expo-blur",
+    "components": {
+      "card_heavy": {
+        "intensity": 60,
+        "tint": "dark",
+        "backgroundColor": "rgba(255, 255, 255, 0.05)",
+        "borderColor": "rgba(255, 255, 255, 0.15)",
+        "borderWidth": 1,
+        "borderRadius": 24,
+        "shadowColor": "#000",
+        "shadowOffset": { "width": 0, "height": 8 },
+        "shadowOpacity": 0.5,
+        "shadowRadius": 32
+      },
+      "nav_bar": {
+        "intensity": 80,
+        "tint": "dark",
+        "backgroundColor": "rgba(10, 10, 10, 0.6)",
+        "borderColor": "rgba(255, 255, 255, 0.1)",
+        "borderTopWidth": 1,
+        "borderRadius": 40,
+        "marginHorizontal": 16,
+        "marginBottom": 24
+      },
+      "modal_overlay": {
+        "intensity": 40,
+        "tint": "dark",
+        "backgroundColor": "rgba(0, 0, 0, 0.5)"
+      }
+    }
+  },
+  "spacing_and_layout": {
+    "padding_scale": [4, 8, 12, 16, 24, 32, 48, 64],
+    "border_radii": {
+      "sm": 8,
+      "md": 16,
+      "lg": 24,
+      "xl": 32,
+      "pill": 9999
+    },
+    "grid": {
+      "columns": 2,
+      "gap": 16,
+      "margin_horizontal": 24
+    }
+  },
+  "animations": {
+    "engine": "react-native-reanimated and @shopify/react-native-skia",
+    "breath_sphere": {
+      "concept": "Central organic Pulsing Breath Sphere. Expands on inhale, holds, retracts on exhale.",
+      "implementation": "Use Skia Canvas with sweeping radial gradients and displacement maps or Reanimated scaling.",
+      "phases": {
+        "inhale": { "scale": 2.5, "duration": 4000, "easing": "bezier(0.4, 0.0, 0.2, 1)", "glow_opacity": 0.8 },
+        "hold": { "scale": 2.5, "duration": 2000, "easing": "linear", "glow_opacity": 0.9 },
+        "exhale": { "scale": 1.0, "duration": 4000, "easing": "bezier(0.4, 0.0, 0.2, 1)", "glow_opacity": 0.3 },
+        "hold_empty": { "scale": 1.0, "duration": 2000, "easing": "linear", "glow_opacity": 0.2 }
+      }
+    },
+    "transitions": {
+      "screen_push": "Smooth spring-physics transitions using React Navigation custom interpolators.",
+      "haptic_gesture": "Use expo-haptics. impactAsync(ImpactFeedbackStyle.Heavy) on session start confirm."
+    }
+  },
+  "screens_blueprints": {
+    "1_onboarding": {
+      "layout": "Full screen cinematic video/mesh background. Bottom 30% features glass pane with bilingual welcome text and 'Start Assessment' button.",
+      "features": ["Language toggle (EN/FA) in top right", "Interactive diagnostic glass cards for personalization"]
+    },
+    "2_breathwork_home": {
+      "layout": "Scrolling vertical list with generous padding. Sticky glass header.",
+      "content": "3 main tier cards (Beginner, Inter, Adv). Each expands into specific activity chips (Pre-Workout, Sleep, etc.)",
+      "nav": "Floating frosted pill at bottom"
+    },
+    "3_meditation_grid": {
+      "layout": "Masonry or 2-column grid. Each card represents a Branch.",
+      "design": "Cards use branch-specific subtle gradient backgrounds with heavy glassmorphism blur over them. Minimalist iconography.",
+      "nav": "Floating frosted pill at bottom"
+    },
+    "4_branch_detail": {
+      "layout": "Immersive hero header with dynamic mesh background of the branch's color system. Scrollable list of levels and sessions below.",
+      "features": ["Mentor greeting overlay logic (first time entry)", "Audio Control Matrix button (floating gear)"]
+    },
+    "5_session_intercept": {
+      "layout": "Translucent modal over current screen.",
+      "content": "Prerequisite checklist (Environment guidelines). 'Slide to Confirm' or 'Long Press to Start' with haptic feedback.",
+      "audio_matrix": "Toggles for Vocal Guide, Ambient Acoustic Layer, Custom Audio."
+    },
+    "6_breath_player": {
+      "layout": "Zen, minimal screen. Zero distractions.",
+      "content": "Central organic Pulsing Breath Sphere. Tiny metadata (progress, phase text) at bottom. Tapping screen reveals audio controls/pause."
+    }
+  },
+  "media": {
+    "image_urls": {
+      "branch_1_wealth": {
+        "url": "https://images.unsplash.com/photo-1709377195538-5522ed0f9e10?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzl8MHwxfHNlYXJjaHwyfHxkYXJrJTIwYWJzdHJhY3QlMjBnb2xkJTIwZ3JhZGllbnR8ZW58MHx8fHwxNzgxNDc0MzQ3fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Abstract dark gold/amber curves. Use as background mesh for Wealth branch."
+      },
+      "branch_3_deep_sleep": {
+        "url": "https://images.unsplash.com/photo-1711995364028-ca11b3f489ae?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTJ8MHwxfHNlYXJjaHwzfHxkYXJrJTIwY29zbWljJTIwbmVidWxhfGVufDB8fHx8MTc4MTQ3NDM0N3ww&ixlib=rb-4.1.0&q=85",
+        "description": "Cosmic deep space nebula. Use as background mesh for Deep Sleep and Astral Projection."
+      },
+      "branch_6_shifting": {
+        "url": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTJ8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMGRhcmslMjBwdXJwbGUlMjBncmFkaWVudHxlbnwwfHx8fDE3ODE0NzQzNDd8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Abstract dark purple gradient. Use for Shifting branch."
+      },
+      "branch_7_healing": {
+        "url": "https://images.unsplash.com/photo-1710438399422-2fca27686bcd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMGRhcmslMjBiaW9sdW1pbmVzY2VudHxlbnwwfHx8fDE3ODE0NzQzNDd8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Dark green bioluminescent abstract. Use for Healing branch."
+      },
+      "branch_11_mind_silence": {
+        "url": "https://images.unsplash.com/photo-1761232007928-258c9bd98d66?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzl8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRlZXAlMjBzcGFjZSUyMHZvaWR8ZW58MHx8fHwxNzgxNDc0MzQ3fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Abstract deep space void/black hole. Minimalist black. Use for Mind Silence."
+      }
+    },
+    "icons": "Use lucide-react-native. Avoid emojis. Icons must have a strokeWidth of 1.5 for elegance."
+  },
+  "accessibility_and_testing": {
+    "bilingual": "Support RTL for Persian (I18nManager.forceRTL). Ensure font families swap elegantly based on active locale.",
+    "testing": "All interactive elements (Touchables, Buttons, Toggles) MUST have a `testID` attribute (e.g., testID=\"breathwork-tab\", testID=\"start-session-btn\").",
+    "contrast": "Ensure text over glass components meets minimum 3:1 APCA contrast ratio. Use text-shadow if necessary to separate from bright gradient spots."
+  },
+  "instructions_to_main_agent": "Use React Native and Expo. Ensure all components are written in .js (not .tsx as per environment constraints). Use StyleSheet for styling. Implement glassmorphism using expo-blur <BlurView>. For the complex background meshes, utilize @shopify/react-native-skia Canvas with fluid sweeps or fallback to simple linear gradients wrapped in animated views. Use expo-haptics for gestures. Provide the complete implementation logic combining these premium components."
+}
