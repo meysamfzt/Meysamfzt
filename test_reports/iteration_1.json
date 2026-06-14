@@ -1,0 +1,48 @@
+{
+  "summary": "Frontend-only review of the Anima Meditation + Breathwork Expo app. Walked through onboarding, both tabs, and deep navigation (Meditation -> Wealth -> Golden -> Wealth Mindset -> Session 1) on a 375x812 mobile viewport. Onboarding (Start Baseline / Personalize), bottom tab bar (Breath / Meditate / Self), Breathwork tier+stream filters, breath intercept (prereq card + AudioMatrix + long-press 1.2s), breath player (cycle pill, phase label, pause/resume, close), 11 meditation branches (correct testIDs include personal_dev, deep_sleep, silence), Wealth branch detail with Zeus mentor preview, Level -> Topic -> Sessions chain, meditation intercept with med-intercept-audio-* matrix and med-long-press-begin all render and behave as expected. Profile tab shows stats card, language toggle (lang-toggle-en / lang-toggle-fa), full Audio Matrix (vocal-guide, ambient, affirmations toggles + interval 5/10/15/20 chips + intro/outro tracks) and empty-history state. App is offline-first, no backend integration to test apart from the default health endpoint (skipped per scope). Audio playback is MOCKED (toggle state only).",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "global",
+        "issues": [
+          "React Native Web logs deprecation warnings on every page: '\"shadow*\" style props are deprecated. Use \"boxShadow\".' (originates from styles like sigil/doneOrb that use shadowColor/shadowRadius/shadowOpacity/shadowOffset).",
+          "React Native Web logs: 'props.pointerEvents is deprecated. Use style.pointerEvents' (likely from the tabBar wrapper that sets pointerEvents=\"box-none\" as a prop in app/(tabs)/_layout.tsx)."
+        ]
+      }
+    ],
+    "react_native_issues": [
+      {
+        "component": "shadow* style props",
+        "issue": "Several StyleSheet entries use shadowColor / shadowOpacity / shadowRadius / shadowOffset which are deprecated on react-native-web. Migrate to the boxShadow shorthand (or keep native shadow* gated by Platform). Reference examples: /app/frontend/app/(tabs)/meditation.tsx (styles.sigil ~line 213), /app/frontend/app/breath/player.tsx (styles.doneOrb ~line 274)."
+      },
+      {
+        "component": "pointerEvents prop",
+        "issue": "pointerEvents is passed as a JSX prop (deprecated on web), should be moved into style. Reference: /app/frontend/app/(tabs)/_layout.tsx (View pointerEvents=\"box-none\" ~line 39)."
+      }
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Replace shadow* style props with boxShadow (or wrap with Platform.select) to clear react-native-web deprecation warnings in meditation.tsx (sigil), player.tsx (doneOrb) and any other StyleSheet entries that use shadowColor/Opacity/Radius/Offset.",
+    "Move pointerEvents from a JSX prop to style.pointerEvents on the tab bar wrapper in app/(tabs)/_layout.tsx to silence the web deprecation warning.",
+    "Optional: verify the actual mentor greeting modal (not just the static `mentor-preview` card on the branch detail) by running a meditation session for the first time on a branch and confirming an `I am listening` dismiss action persists `anima.mentors_met`. The static preview card renders correctly; the modal itself was not reached from the intercept in this run (the testing agent stopped at the intercept), so the modal trigger on /meditation/play and its persistence should be self-verified by the main agent."
+  ],
+  "critical_code_review_comments": [
+    "AppContext loads onboarded via storage.getItem<boolean>(K.onboarded, false) but onboarded is written as a boolean and read back through JSON.parse — verify across reload that the boolean comes back true (the live test confirmed this works: after finishing onboarding, subsequent navigation correctly stayed in tabs).",
+    "BreathPlayer effect depends on `phase` derived from PHASE_ORDER[phaseIdx]; since phase is computed from phaseIdx, listing both `phase` and `phaseIdx` in the dependency array is redundant (no functional bug, just a lint nit).",
+    "Storage helper on web uses AsyncStorage (IndexedDB-backed), not localStorage — testing agents should walk through onboarding rather than seeding localStorage keys to enter the tabs."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (out of scope)", "frontend": "~95%"},
+  "seed_data_creation": "None. All state is local; onboarding was walked through in each test run.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Use mobile viewport 375x812. Walk through onboarding (TouchableOpacity[data-testid=personalize-btn] -> goal-* -> exp-* -> enter-app-btn) to enter the tabs — do NOT try to seed AsyncStorage via window.localStorage because AsyncStorage on web is backed by IndexedDB. Confirmed testIDs: tab-breathwork / tab-meditation / tab-profile, tier-{beginner|intermediate|advanced}, stream-{all|activity|goal}, bw-session-{id}, intercept-back, prereq-card, intercept-audio-* (vocal-guide-toggle, ambient-toggle, affirmations-toggle, interval-5/10/15/20), long-press-begin (~1.2s hold), pause-btn, player-close, back-home-btn, branch-{wealth|personal_dev|deep_sleep|astral|connection|shifting|healing|hypnosis|matrix|study|silence}, mentor-preview, level-{golden|capitalist|lord} (Wealth), topic-{wealth-mindset|worthiness|gratitude-flow}, med-session-{id}, med-intercept-audio-*, med-long-press-begin, stats-card, lang-toggle-{en|fa}, profile-audio-*, clear-history-btn. The actual mentor-greeting modal (vs the static mentor-preview card on the branch detail) was not exercised in this run — recommend exercising it on /meditation/play first-session-of-branch and verifying anima.mentors_met persistence on reload.",
+  "rca_of_issue": "N/A — no blocking bugs found. Only minor react-native-web deprecation warnings (shadow* props and pointerEvents-as-prop) that the main agent should clean up. No backend testing was performed (out of scope per the review request)."
+}
