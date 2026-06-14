@@ -65,7 +65,7 @@ export function BreathSphere({ phase, duration, accent, size = 280 }: Props) {
   }));
 
   return (
-    <View style={[styles.wrap, { width: size, height: size }]} pointerEvents="none">
+    <View style={[styles.wrap, { width: size, height: size, pointerEvents: "none" }]}>
       <Animated.View style={[styles.layer, haloStyle]}>
         <LinearGradient
           colors={[accent, "rgba(0,0,0,0)"]}

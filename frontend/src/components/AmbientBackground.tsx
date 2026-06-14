@@ -67,7 +67,7 @@ export function AmbientBackground({
   const accentColor = accent ?? safeColors[safeColors.length - 1];
 
   return (
-    <View style={styles.root} pointerEvents="none">
+    <View style={styles.root}>
       <LinearGradient
         colors={safeColors}
         style={StyleSheet.absoluteFill}
@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     backgroundColor: "#050505",
     overflow: "hidden",
+    pointerEvents: "none",
   },
   orb: {
     position: "absolute",

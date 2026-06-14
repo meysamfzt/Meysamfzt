@@ -36,12 +36,12 @@ export default function TabsLayout() {
       tabBar={({ state, navigation }) => {
         return (
           <View
-            pointerEvents="box-none"
             style={[
               styles.barWrap,
               {
                 paddingBottom: Math.max(insets.bottom, 12),
                 flexDirection: rtl ? "row-reverse" : "row",
+                pointerEvents: "box-none",
               },
             ]}
           >
